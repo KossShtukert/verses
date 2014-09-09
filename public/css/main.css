@@ -1,0 +1,314 @@
+/**
+ * User: Koss (karakurtkoss@gmail.com)
+ * Date: 27.08.2014
+ */
+
+/** BEGIN MAIN **/
+
+html,
+body {
+    background-image: url('/img/bg.jpg');
+    height: 100%;
+    font-family: 'Philosopher', sans-serif;
+    min-width: 660px;
+}
+
+header, footer {
+    background: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+header {
+    margin: 0 auto 15px;
+}
+
+label {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+}
+
+.form-control:focus {
+    border-color: #ccc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.form-control::-moz-placeholder {
+    color: #555;
+}
+
+.btn {
+    color: #333;
+    display: block;
+    padding: 10px;
+    background: #fff;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+    background: #f9f9f9;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+:required {
+    border: 1px solid #eea236;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(238, 162, 54, 0.6);
+}
+
+.help-block-error {
+    color: #a94442;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.text-16 {
+    font-size: 16px;
+}
+
+.tooltip {
+    font-size: 16px;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.tooltip-inner {
+    color: #333;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.radio input {
+    border: 0;
+    box-shadow: none;
+    height: 25px;
+    width: 25px;
+    margin-top: 0px;
+}
+
+.radio span {
+    margin-left: 10px;
+}
+
+/** END MAIN **/
+
+/** BEGIN HEADER/SECTION/FOOTER **/
+
+header .logo {
+    line-height: 40px;
+    padding: 15px;
+    text-align: left;
+    text-shadow: 0 4px 1px #ddd;
+    text-transform: none;
+    font-style: italic;
+}
+
+header .logo a {
+    color: #333;
+}
+
+header .logo a:hover {
+    text-decoration: none;
+}
+
+header .logo .site-name {
+    font-size: 72px;
+}
+
+header .logo .slogan {
+    font-size: 48px;
+}
+
+header .account {
+    padding: 15px 15px 0 15px;
+    text-align: right;
+}
+
+header .account .btn-reg {
+    margin-top: 0;
+}
+
+header .account .btn-sign,
+header .account .btn-remember {
+    margin-top: 10px;
+}
+
+header .account .btn-reg,
+header .account .btn-sign,
+header .account .btn-remember {
+    font-size: 20px;
+}
+
+header .account .btn-account {
+    margin-top: 30px;
+}
+
+section {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    padding: 15px;
+}
+
+footer {
+    text-align: center;
+    margin: 15px auto 0;
+    padding: 10px;
+}
+
+/** END HEADER/SECTION/FOOTER **/
+
+/** MARGIN & PADDING **/
+
+.nm {
+    margin: 0;
+}
+
+.np {
+    padding: 0;
+}
+
+.pl0 {
+    padding-left: 0;
+}
+
+.pr0 {
+    padding-right: 0;
+}
+
+.pt0 {
+    padding-top: 0;
+}
+
+.pb0 {
+    padding-bottom: 0;
+}
+
+.pl10 {
+    padding-left: 10px;
+}
+
+.pr10 {
+    padding-right: 10px;
+}
+
+.pt10 {
+    padding-top: 10px;
+}
+
+.pb10 {
+    padding-bottom: 10px;
+}
+
+.mr0 {
+    margin-right: 0;
+}
+
+.mr5 {
+    margin-right: 5px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.ml0 {
+    margin-left: 0;
+}
+
+.mt0 {
+    margin-top: 0;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mb0 {
+    margin-bottom: 0;
+}
+
+.mb5 {
+    margin-bottom: 5px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb15 {
+    margin-bottom: 15px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mtb15 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/** END MARGIN & PADDING **/
+
+/** BEGIN OTHER **/
+
+.btn-inline {
+    display: inline-block;
+}
+
+.alert {
+    margin: 0;
+    border-width: 0;
+    border-radius: 0;
+    font-family: 'Open Sans';
+    font-size: 18px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    opacity: .95;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.profile #nick_name {
+    text-transform: lowercase;
+}
+
+.profile .info-input {
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 10px;
+    font-size: 18px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+/** END OTHER **/
