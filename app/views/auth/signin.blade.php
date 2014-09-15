@@ -14,11 +14,11 @@
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div class="form-group">
             {{ Form::email('email', null, ['class' => 'form-control input-lg', 'required', 'autofocus', 'placeholder' => 'Email адрес']) }}
-            {{ $errors->first('email', '<p class="help-block help-block-error">:message</span>') }}
+            {{ $errors->first('email', '<p class="help-block help-block-error">:message</p>') }}
         </div>
         <div class="form-group">
             {{ Form::password('password', ['class' => 'form-control input-lg', 'required', 'placeholder' => 'Пароль']) }}
-            {{ $errors->first('password', '<p class="help-block help-block-error">:message</span>') }}
+            {{ $errors->first('password', '<p class="help-block help-block-error">:message</p>') }}
         </div>
         <div class="form-group checkbox">
             <label class="checkbox text-16">

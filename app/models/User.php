@@ -27,9 +27,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	 */
 	protected $hidden = ['password', 'activationCode', 'remember_token'];
 
-	protected $fillable = ['email', 'password'];
+	protected $fillable = [];
 
-	protected $guarded = ['id', 'password'];
+	protected $guarded = ['id'];
 
 	/**
 	 * Validation SignIn rules
@@ -49,6 +49,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	public static $signUpRules = [
 		'email'    => 'required|email|unique:users|min:5|max:30',
 		'password' => 'required|confirmed|min:3|max:20'
+	];
+
+	/**
+	 * Validation Profile rules
+	 *
+	 * @var array
+	 */
+	public static $profileRules = [
+		'first_name' => 'required|min:3|max:20',
+		'last_name'  => 'required|min:3|max:20',
+		'nick_name'  => 'required|min:1|max:20|latin_only',
+		'birthday'   => 'required|date',
+		'gender'     => 'required|in:male,female',
+		'password'   => 'required|confirmed|min:3|max:20'
 	];
 
 	/**
@@ -85,6 +99,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 		);
 	}
 
+	/**
+	 * @param $activationCode
+	 *
+	 * @return bool
+	 */
 	public function activate($activationCode) {
 		if ($this->isActive) {
 			return false;
@@ -101,6 +120,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 		Log::info("User [{$this->email}] successfully activated");
 
 		return true;
+	}
+
+	/**
+	 * @param array $attributes
+	 *
+	 * @return bool|int
+	 */
+	public function update(array $attributes = array()) {
+		if (isset($attributes['password'])) {
+			$attributes['password'] = Hash::make($attributes['password']);
+		}
+
+		if (!$this->exists) {
+			return $this->newQuery()->update($attributes);
+		}
+
+		return $this->fill($attributes)->save();
 	}
 
 	/**

@@ -28,6 +28,10 @@ label {
     margin-left: 10px;
 }
 
+textarea {
+    resize: vertical;
+}
+
 .form-control {
     background-color: #fff;
     border: 1px solid #ccc;

@@ -11,8 +11,27 @@ class UserController extends BaseController
 		$this->setContent(View::make('profile.index', compact('user')));
 	}
 
-	public function postProfile() {
+	public function postProfile(User $user) {
+		$validationRules = User::$profileRules;
 
+		if (!$password = Input::get('password')) {
+			unset($validationRules['password']);
+			$inputs = Input::except('_token', 'password', 'password_confirmation');
+		} else {
+			$inputs = Input::except('_token', 'password_confirmation');
+		}
+
+		$validator = Validator::make(Input::all(), $validationRules);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		if ($user->update($inputs)) {
+			return Redirect::route('profile', $user->getNicknameOrId())->withSuccess('Профайл успешно обновлен');
+		}
+
+		return Redirect::route('profile', $user->getNicknameOrId())->withError('Ошибка обновления профайла');
 	}
 
 	public function getVerses() {

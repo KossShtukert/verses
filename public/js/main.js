@@ -13,7 +13,7 @@ $(function () {
     $('.alert').animate({
             opacity: 0
         }, {
-            duration: 15000,
+            duration: 5 * 1000,
             specialEasing: {
                 width: 'linear',
                 height: 'easeOutBounce'

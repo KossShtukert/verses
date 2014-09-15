@@ -71,7 +71,6 @@ class AuthController extends BaseController
 		$user = User::find($userId);
 
 		if (!$user) {
-
 			return Redirect::route('home')->withError('Неверная ссылка на активацию аккаунта');
 		}
 

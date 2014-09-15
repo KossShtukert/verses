@@ -14,27 +14,28 @@
         <div class="form-group">
             {{ Form::label('email', 'Email') }}
             {{ Form::email('email', null, ['class' => 'form-control input-lg', 'readonly']) }}
-            {{ $errors->first('email', '<p class="help-block help-block-error">:message</span>') }}
+            {{ $errors->first('email', '<p class="help-block help-block-error">:message</p>') }}
         </div>
         <div class="form-group">
             {{ Form::label('first_name', 'Имя') }}
-            {{ Form::text('first_name', null, ['class' => 'form-control input-lg', 'required']) }}
-            {{ $errors->first('first_name', '<p class="help-block help-block-error">:message</span>') }}
+            {{ Form::text('first_name', null, ['class' => 'form-control input-lg', 'required', 'min' => 3, 'max' => 20]) }}
+            {{ $errors->first('first_name', '<p class="help-block help-block-error">:message</p>') }}
         </div>
         <div class="form-group">
             {{ Form::label('last_name', 'Фамилия') }}
-            {{ Form::text('last_name', null, ['class' => 'form-control input-lg', 'required']) }}
-            {{ $errors->first('last_name', '<p class="help-block help-block-error">:message</span>') }}
+            {{ Form::text('last_name', null, ['class' => 'form-control input-lg', 'required', 'min' => 3, 'max' => 20]) }}
+            {{ $errors->first('last_name', '<p class="help-block help-block-error">:message</p>') }}
         </div>
         <div class="form-group">
-            {{ Form::label('nick_name', 'Сценическое имя (nickname)') }}
-            {{ Form::text('nick_name', null, ['class' => 'form-control input-lg', 'required']) }}
-            {{ $errors->first('nick_name', '<p class="help-block help-block-error">:message</span>') }}
+            {{ Form::label('nick_name', 'Псевдоним (сценическое имя)') }}
+            {{ Form::text('nick_name', null, ['class' => 'form-control input-lg', 'required', 'min' => 1, 'max' => 20, 'pattern' => '[a-zA-Z]+']) }}
+            <p class="help-block help-block-info">Только латинские буквы, без пробела.</p>
+            {{ $errors->first('nick_name', '<p class="help-block help-block-error">:message</p>') }}
         </div>
         <div class="form-group">
             {{ Form::label('birthday', 'Дата рождения') }}
             {{ Form::text('birthday', null, ['class' => 'form-control input-lg', 'required']) }}
-            {{ $errors->first('birthday', '<p class="help-block help-block-error">:message</span>') }}
+            {{ $errors->first('birthday', '<p class="help-block help-block-error">:message</p>') }}
         </div>
         <div class="form-group">
             {{ Form::label('gender', 'Пол', ['class' => 'mb0']) }}

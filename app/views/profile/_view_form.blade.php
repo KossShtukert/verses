@@ -23,7 +23,7 @@
         <span class="info-input">{{ $user->last_name }}</span>
     </div>
     <div class="form-group {{ $user->nick_name ? '' : 'hidden' }}">
-        <label>Сценическое имя (nickname)</label>
+        <label>Псевдоним (сценическое имя)</label>
         <span class="info-input">{{ $user->nick_name }}</span>
     </div>
     <div class="form-group {{ $user->birthday ? '' : 'hidden' }}">

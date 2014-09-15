@@ -27,12 +27,12 @@ Route::post('/reset', ['uses' => 'RemindersController@postReset']);
 Route::group(
 	['before' => 'auth', 'prefix' => 'profile/{user}'], function () {
 		Route::get('/', ['as' => 'profile', 'uses' => 'UserController@getProfile'])
-			 ->where('user', '[A-Za-z0-9]+');
+			 ->where('user', '[a-zA-Z0-9]+');
 
 		Route::post('/', ['uses' => 'UserController@postProfile']);
 
 		Route::get('/verses', ['as' => 'profile_verses', 'uses' => 'UserController@getVerses'])
-			 ->where('user', '[A-Za-z0-9]+');
+			 ->where('user', '[a-zA-Z0-9]+');
 	}
 );
 /**

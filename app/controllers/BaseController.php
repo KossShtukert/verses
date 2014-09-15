@@ -67,4 +67,23 @@ class BaseController extends Controller
 
 		$this->layout->title = $title ? $title . " &middot; " . $this->title : $this->title;
 	}
+
+	/**
+	 * Unset Rules from Validator
+	 *
+	 * @param array $keys
+	 * @param       $rules
+	 *
+	 * @return mixed
+	 * @throws Exception
+	 */
+	public function unsetRules(array $keys, $rules) {
+		foreach ($keys as $key) {
+			if (array_key_exists($key, $rules)) {
+				unset($rules[$key]);
+			}
+		}
+
+		return $rules;
+	}
 }
