@@ -1,12 +1,20 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\UserTrait;
 
 /**
  * User
+ * @property mixed nick_name
+ * @property mixed password
+ * @property mixed activationCode
+ * @property mixed isActive
+ * @property mixed id
+ * @property mixed email
+ * @property mixed first_name
+ * @property mixed last_name
  */
 class User extends Eloquent implements UserInterface, RemindableInterface
 {
@@ -25,7 +33,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	 *
 	 * @var array
 	 */
-	protected $hidden = ['password', 'activationCode', 'remember_token'];
+	protected $hidden = [
+		'password',
+		'activationCode',
+		'remember_token'
+	];
 
 	protected $fillable = [];
 
@@ -69,9 +81,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	 * @return mixed|static
 	 */
 	public function register() {
-		$this->password = Hash::make($this->password);
+		$this->password       = Hash::make($this->password);
 		$this->activationCode = $this->generateCode();
-		$this->isActive = false;
+		$this->isActive       = false;
 		$this->save();
 
 		Log::info("User [{$this->email}] registered. Activation code: {$this->activationCode}");
@@ -82,21 +94,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	}
 
 	public function sendActivationMail() {
-		$activationUrl = action(
-			'activate',
-			[
-				'userId'         => $this->id,
-				'activationCode' => $this->activationCode,
-			]
-		);
+		$activationUrl = action('activate', [
+			'userId'         => $this->id,
+			'activationCode' => $this->activationCode,
+		]);
 
-		Mail::send(
-			'emails/auth/activation',
-			['activationUrl' => $activationUrl],
-			function ($message) {
-				$message->to($this->email)->subject('Спасибо за регистрацию');
-			}
-		);
+		Mail::send('emails/auth/activation', ['activationUrl' => $activationUrl], function ($message) {
+			$message->to($this->email)->subject('Спасибо за регистрацию');
+		});
 	}
 
 	/**
@@ -114,7 +119,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 		}
 
 		$this->activationCode = '';
-		$this->isActive = true;
+		$this->isActive       = true;
 		$this->save();
 
 		Log::info("User [{$this->email}] successfully activated");
@@ -155,9 +160,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 
 	/**
 	 * @return mixed
+	 *
 	 */
 	public function getNicknameOrId() {
-		return $this->nick_name ?: $this->id;
+		return Str::lower($this->nick_name) ?: $this->id;
 	}
 
 	private function generateCode() {
