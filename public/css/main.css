@@ -155,6 +155,11 @@ header .account .btn-remember {
     font-size: 20px;
 }
 
+header .account .btn-quick-add-verses {
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
 header .account .btn-account {
     margin-top: 30px;
 }

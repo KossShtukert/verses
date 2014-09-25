@@ -41,7 +41,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 
 	protected $fillable = [];
 
-	protected $guarded = ['id'];
+	protected $guarded = [
+		'id',
+		'email'
+	];
 
 	/**
 	 * Validation SignIn rules

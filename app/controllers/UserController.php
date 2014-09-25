@@ -34,7 +34,7 @@ class UserController extends BaseController
 		return Redirect::route('profile', $user->getNicknameOrId())->withError('Ошибка обновления профайла');
 	}
 
-	public function getVerses() {
-		die(var_dump(__LINE__));
+	public function getVerses(User $user) {
+		$this->setContent(View::make('profile.verses', compact('user')));
 	}
 } 

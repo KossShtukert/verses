@@ -27,7 +27,7 @@ $(function () {
             btn_not_change_password = $('.btn-not-change-password'),
             password_fields = $('input[type="password"]');
 
-        me.hide(10, function() {
+        me.hide(10, function () {
             password_fields.prop('required', true);
             change_password_block.show();
             btn_not_change_password.show();
@@ -40,10 +40,19 @@ $(function () {
             btn_change_password = $('.btn-change-password'),
             password_fields = $('input[type="password"]');
 
-        me.hide(10, function() {
+        me.hide(10, function () {
             password_fields.prop('required', false);
             change_password_block.hide();
             btn_change_password.show();
         });
+    });
+
+    $('.btn-quick-add-verses').on('click tap', function () {
+        $('.popover-quick-add-verses').popover({
+            container: '.btn-quick-add-verses',
+            delay: {"show": 500},
+            placement: 'bottom',
+            selector: $(this)
+        }).show();
     });
 });
