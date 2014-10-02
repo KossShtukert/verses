@@ -34,12 +34,26 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	 * @var array
 	 */
 	protected $hidden = [
+		'email',
 		'password',
 		'activationCode',
 		'remember_token'
 	];
 
-	protected $fillable = [];
+	protected $fillable = [
+		'email',
+		'password',
+		'first_name',
+		'last_name',
+		'nick_name',
+		'gender',
+		'birthday',
+		'about',
+		'isAdmin',
+		'isActive',
+		'activationCode',
+		'remember_token'
+	];
 
 	protected $guarded = [
 		'id',

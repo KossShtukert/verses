@@ -48,8 +48,7 @@ class AuthController extends BaseController
 		}
 
 		$user = new User();
-		$user->fill(Input::all())
-			 ->register();
+		$user->fill(Input::all())->register();
 
 		return Redirect::route('home')
 					   ->withInfo('Регистрация почти завершена. Вам необходимо подтвердить e-mail, указанный при регистрации, перейдя по ссылке в письме');
@@ -65,7 +64,7 @@ class AuthController extends BaseController
 	 * @return \Illuminate\View\View
 	 */
 	public function getActivate() {
-		$userId = Input::get('userId');
+		$userId         = Input::get('userId');
 		$activationCode = Input::get('activationCode');
 
 		$user = User::find($userId);
@@ -77,7 +76,7 @@ class AuthController extends BaseController
 		if ($user->activate($activationCode)) {
 			Auth::login($user);
 
-			return Redirect::route('profile')->withSuccess('Аккаунт активирован', '/');
+			return Redirect::route('profile', $user->getNicknameOrId())->withSuccess('Аккаунт активирован');
 		}
 
 		return Redirect::route('home')
