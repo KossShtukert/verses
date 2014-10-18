@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             {{ Form::submit('Войти', ['class' => 'btn btn-inline']) }}
-            {{ link_to_route('remind', '?', null, ['class' => 'btn btn-remember btn-inline', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Я забыл пароль :(']) }}
+            {{ link_to_route('remind', '?', null, ['class' => 'btn btn-remember btn-inline hint-tooltip', 'data-placement' => 'right', 'title' => 'Я забыл пароль :(']) }}
         </div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-info text-16 text-right">

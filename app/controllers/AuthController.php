@@ -27,7 +27,7 @@ class AuthController extends BaseController
 		if (Auth::attempt($credentials, Input::has('remember'))) {
 			Log::info('User [' . $credentials['email'] . '] successfully logged in.');
 
-			return Redirect::intended()->withSuccess('Мы рады видеть Вас ' . Auth::getUser()->name() . '!');
+			return Redirect::intended()->withSuccess('Рады видеть Вас ' . Auth::getUser()->name() . '!');
 		} else {
 			Log::info('User [' . $credentials['email'] . '] failed to login.');
 		}

@@ -1,10 +1,7 @@
-<?php
-/**
- * Created by LIS.
- * User: Koss (karakurtkoss{at}gmail.com)
- * Date: 27.08.2014
- */
- ?>
+{{--
+ Author: Koss (karakurtkoss{at}gmail.com)
+ Date: 03.09.2014
+--}}
 <!doctype html>
 <html lang="<?= App::getLocale(); ?>">
     <head>
@@ -18,6 +15,8 @@
 
         {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', ['media' => 'screen']) }}
         {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans|Oswald,ver=1.1.0|Philosopher:400,700,400italic,700italic|Marck+Script&subset=latin,cyrillic,latin-ext', ['media' => 'screen']) }}
+        {{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', ['media' => 'screen']) }}
+
         {{ HTML::style('/css/main.css') }}
 
         @section('css')

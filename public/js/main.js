@@ -6,7 +6,7 @@ $(function () {
     'use strict';
 
     $('body').tooltip({
-        selector: '[data-toggle=tooltip]',
+        selector: '.hint-tooltip',
         container: 'body'
     });
 
@@ -45,14 +45,5 @@ $(function () {
             change_password_block.hide();
             btn_change_password.show();
         });
-    });
-
-    $('.btn-quick-add-verses').on('click tap', function () {
-        $('.popover-quick-add-verses').popover({
-            container: '.btn-quick-add-verses',
-            delay: {"show": 500},
-            placement: 'bottom',
-            selector: $(this)
-        }).show();
     });
 });
