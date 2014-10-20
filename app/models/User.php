@@ -95,6 +95,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	];
 
 	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany|Verse
+	 */
+	public function verses() {
+		return $this->hasMany('Verse');
+	}
+
+	/**
 	 * @return mixed|static
 	 */
 	public function register() {
@@ -183,6 +190,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 		return Str::lower($this->nick_name) ?: $this->id;
 	}
 
+	/**
+	 * @return string
+	 */
 	private function generateCode() {
 		return Str::random();
 	}

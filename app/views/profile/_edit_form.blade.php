@@ -5,7 +5,7 @@
  * Date: 08.09.2014
  */
 ?>
-<h1>Мой профиль</h1>
+<h2>Мой профиль</h2>
 
 <hr/>
 
@@ -79,9 +79,9 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="form-group">
-            {{ Form::submit('Сохранить', ['class' => 'btn btn-inline']) }}
-            {{ Form::button('Отмена', ['class' => 'btn btn-inline btn-not-change-password', 'style' => 'display:none;']) }}
-            {{ Form::button('Изменить пароль', ['class' => 'btn btn-inline btn-change-password']) }}
+            {{ Form::submit('Сохранить', ['class' => 'btn btn-inline btn-link']) }}
+            {{ Form::button('Отмена', ['class' => 'btn btn-inline btn-link btn-not-change-password', 'style' => 'display:none;']) }}
+            {{ Form::button('Изменить пароль', ['class' => 'btn btn-inline btn-link btn-change-password']) }}
         </div>
     </div>
 {{ Form::close() }}

@@ -1,10 +1,7 @@
-<?php
-/**
- * Created by LIS.
- * User: Koss (karakurtkoss{at}gmail.com)
- * Date: 08.09.2014
- */
-?>
+{{--
+ Author: Koss (karakurtkoss{at}gmail.com)
+ Date: 03.09.2014
+--}}
 @section('content')
 
 @if ($user == Auth::getUser())

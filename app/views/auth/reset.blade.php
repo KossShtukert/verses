@@ -26,7 +26,7 @@
         <div class="form-group">
             {{ Form::hidden('token', $token) }}
 
-            {{ Form::submit('Сбросить пароль', ['class' => 'btn btn-inline']) }}
+            {{ Form::submit('Сбросить пароль', ['class' => 'btn btn-inline btn-link']) }}
         </div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-info text-16 text-right">

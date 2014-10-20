@@ -24,15 +24,21 @@ Route::post('/reset', ['uses' => 'RemindersController@postReset']);
 /**
  * ProfileController
  */
-Route::group(
-	['before' => 'auth', 'prefix' => 'profile/{user}'], function () {
+Route::group(['before' => 'auth', 'prefix' => 'profile/{user}'], function () {
 		Route::get('/', ['as' => 'profile', 'uses' => 'UserController@getProfile'])
 			 ->where('user', '[a-zA-Z0-9]+');
 
 		Route::post('/', ['uses' => 'UserController@postProfile']);
 
-		Route::get('/verses', ['as' => 'profile_verses', 'uses' => 'UserController@getVerses'])
-			 ->where('user', '[a-zA-Z0-9]+');
+		Route::group(['before' => 'auth', 'prefix' => 'verses'], function () {
+			Route::get('/', ['as' => 'profile_verses', 'uses' => 'UserController@getVerses'])
+				->where('user', '[a-zA-Z0-9]+');
+
+			Route::get('create', ['as' => 'profile_create_verse', 'uses' => 'UserController@getCreateVerses'])
+				 ->where('user', '[a-zA-Z0-9]+');
+
+			Route::post('create', ['uses' => 'UserController@postCreateVerses']);
+		});
 	}
 );
 /**

@@ -24,7 +24,7 @@
             {{ Form::password('password_confirmation', ['class' => 'form-control input-lg', 'required' ,'placeholder' => 'Повторите пароль']) }}
         </div>
         <div class="form-group">
-            {{ Form::submit('Зарегистрироваться', ['class' => 'btn']) }}
+            {{ Form::submit('Зарегистрироваться', ['class' => 'btn btn-link']) }}
         </div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-info text-16 text-right">

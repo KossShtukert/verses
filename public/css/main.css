@@ -65,6 +65,11 @@ textarea {
     text-decoration: none;
 }
 
+.btn-sm, .btn-group-sm>.btn {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
 :required {
     border: 1px solid #eea236;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(238, 162, 54, 0.6);
@@ -114,6 +119,10 @@ textarea {
 
 /** BEGIN HEADER/SECTION/FOOTER **/
 
+header .navbar {
+    padding: 0 20px;
+}
+
 header .navbar-brand {
     text-align: left;
     text-shadow: 0 4px 1px #ddd;
@@ -155,7 +164,7 @@ header .navbar-nav .caret{
 }
 
 header .navbar-nav.navbar-right:last-child {
-    margin-right: 15px !important;
+    margin-right: 20px !important;
 }
 
 header .account {

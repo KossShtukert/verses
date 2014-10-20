@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Created by LIS.
- * User: Koss (karakurtkoss{at}gmail.com)
+ * Created by Koss
+ * Email: karakurtkoss{at}gmail.com
  * Date: 04.09.2014
  */
 class AuthController extends BaseController

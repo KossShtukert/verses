@@ -6,22 +6,24 @@
     <ul class="nav navbar-nav navbar-right">
 	    @if (!Auth::check())
 	        <li>
-				<a href="{{ route('signup') }}" class="hint-tooltip" title="Регистрация" data-placement="left">
+				<a href="{{ route('signup') }}" class="hint-tooltip" title="Регистрация" data-placement="bottom">
 					<i class="fa fa-pencil fa-2x"></i>
 				</a>
 			</li>
 	        <li>
-	            <a href="{{ route('signin') }}" class="hint-tooltip " title="Вход" data-placement="left">
+	            <a href="{{ route('signin') }}" class="hint-tooltip " title="Вход" data-placement="bottom">
 	                <i class="fa fa-lock fa-2x"></i>
             	</a>
             </li>
 		@else
-	        <li class="dropdown">
-	            <a href="#" class="dropdown-toggle hint-tooltip" title="Написать стих" data-toggle="dropdown" data-placement="left">
+	        <li class="dropdown hint-tooltip" title="Написать стих" data-placement="left">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	                <i class="fa fa-plus fa-2x"></i>
 	            </a>
 	            <ul class="dropdown-menu text-left" role="menu">
-	                <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>
+	                <li>
+	                    {{ Form::textarea('verse', null, ['class' => 'form-control']) }}
+	                </li>
 	                <li><a href="#"><span class="fa fa-list pull-right"></span> Add or remove from a list  </a></li>
 	                <li class="divider"></li>
 	                <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>
@@ -30,7 +32,7 @@
 	            </ul>
 	        </li>
 	        <li class="dropdown">
-	             <a href="#" class="dropdown-toggle hint-tooltip" data-toggle="dropdown" title="{{ Auth::getUser()->name() }}" data-placement="left">
+	             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	                <i class="fa fa-user fa-2x"></i>
 	            </a>
 	            <ul class="dropdown-menu" role="menu">
