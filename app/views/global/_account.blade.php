@@ -43,7 +43,7 @@
 	                    </a>
 	                </li>
 	                <li class="text-right">
-	                    <a href="{{ route('profile_verses', Auth::getUser()->getNicknameOrId()) }}" class="btn-link text-18">
+	                    <a href="{{ route('user/verse', Auth::getUser()->getNicknameOrId()) }}" class="btn-link text-18">
                             Мои стихи
                             <i class="fa fa-book"></i>
                         </a>

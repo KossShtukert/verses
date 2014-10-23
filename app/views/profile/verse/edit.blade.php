@@ -7,13 +7,13 @@
 <h2>
 	Создание стиха
 	<div class="pull-right">
-		{{ link_to_route('profile_verses', 'Мои стихи', [$user->getNicknameOrId()], ['class' => 'btn btn-link btn-sm']) }}
+		{{ link_to_route('user/verse', 'Мои стихи', [$user->getNicknameOrId()], ['class' => 'btn btn-link btn-sm']) }}
 	</div>
 </h2>
 
 <hr/>
 
-{{ Form::open(['route' => ['profile_create_verse', $user->getNicknameOrId()]]) }}
+{{ Form::open(['route' => ['user/verse/create', $user->getNicknameOrId()]]) }}
 	<div class="form-group">
 		{{ Form::label('name', 'Название') }}
 		{{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Введите название стиха', 'pattern' => '.{3,}',  'required']) }}

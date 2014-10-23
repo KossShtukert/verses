@@ -7,7 +7,7 @@
 <h2>
 	Мои стихи
 	<div class="pull-right">
-		{{ link_to_route('profile_create_verse', 'Написать стих', [$user->getNicknameOrId()], ['class' => 'btn btn-link btn-sm']) }}
+		{{ link_to_route('user/verse/create', 'Написать стих', [$user->getNicknameOrId()], ['class' => 'btn btn-link btn-sm']) }}
 	</div>
 </h2>
 
@@ -22,7 +22,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@each('profile.verses._item', $verses, 'verse', 'global._item_not_found')
+		@each('profile.verse._item', $verses, 'verse', 'global._item_not_found')
 	</tbody>
 </table>
 @endsection

@@ -25,22 +25,15 @@ Route::post('/reset', ['uses' => 'RemindersController@postReset']);
  * ProfileController
  */
 Route::group(['before' => 'auth', 'prefix' => 'profile/{user}'], function () {
-		Route::get('/', ['as' => 'profile', 'uses' => 'UserController@getProfile'])
-			 ->where('user', '[a-zA-Z0-9]+');
+	Route::get('/', ['as' => 'profile', 'uses' => 'UserController@getProfile']);
+	Route::post('/', ['uses' => 'UserController@postProfile']);
 
-		Route::post('/', ['uses' => 'UserController@postProfile']);
+	Route::group(['prefix' => 'verse'], function () {
+		Route::get('/', ['as' => 'user/verse', 'uses' => 'VerseController@getUserVerses']);
 
-		Route::group(['before' => 'auth', 'prefix' => 'verses'], function () {
-			Route::get('/', ['as' => 'profile_verses', 'uses' => 'UserController@getVerses'])
-				->where('user', '[a-zA-Z0-9]+');
-
-			Route::get('create', ['as' => 'profile_create_verse', 'uses' => 'UserController@getCreateVerses'])
-				 ->where('user', '[a-zA-Z0-9]+');
-
-			Route::post('create', ['uses' => 'UserController@postCreateVerses']);
-		});
-	}
-);
+		Route::any('create', ['as' => 'user/verse/create', 'uses' => 'VerseController@create']);
+	});
+});
 /**
  * HomeController
  */
